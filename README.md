@@ -6,3 +6,4 @@ This demo provides two radio buttons to toggle between two views. The first view
 
 ![screencast example](demo.gif)
 
+*Live Demo* can be found [here](https://zekun-li.github.io/side-by-side/).
