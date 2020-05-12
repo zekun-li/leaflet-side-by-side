@@ -54,8 +54,8 @@
         maxZoom: 16
     });
     
-    var mapLayer1 = L.layerGroup([synthLayer, osmLayer]);
-    var mapLayer2 = L.layerGroup([synthLayer, histoLayer]).addTo(map);
+    var mapLayer1 = L.layerGroup([osmLayer, synthLayer]);
+    var mapLayer2 = L.layerGroup([osmLayer, histoLayer]).addTo(map);
 
     var mapLayers = {
     "OSM Maps" : mapLayer1,
