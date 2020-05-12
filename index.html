@@ -58,13 +58,13 @@
     var mapLayer2 = L.layerGroup([osmLayer, histoLayer]).addTo(map);
 
     var mapLayers = {
-    "OSM Maps" : mapLayer1,
+    "Synthetic Maps" : mapLayer1,
     "Historical Maps" : mapLayer2
     };
 
     L.control.layers(mapLayers,null,{collapsed:false, position: 'topright'}).addTo(map);
 
-    L.control.sideBySide([synthLayer, synthLayer],[osmLayer, histoLayer]).addTo(map);
+    L.control.sideBySide([osmLayer, osmLayer],[synthLayer, histoLayer]).addTo(map);
 
 
 
