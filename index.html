@@ -3,7 +3,7 @@
 <head>
     <meta charset=utf-8 />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
-    <title>Leaflet Side-by-side</title>
+    <title>SynthMap Demo</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
@@ -53,18 +53,29 @@
         minZoom: 10,
         maxZoom: 16
     });
-    
-    var mapLayer1 = L.layerGroup([osmLayer, synthLayer]);
-    var mapLayer2 = L.layerGroup([osmLayer, histoLayer]).addTo(map);
+        
+     var withtextLayer = L.tileLayer('https://api.mapbox.com/styles/v1/zekun-li/ckvg72ydq19xc15p76b9n3lxq/tiles/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
+        attribution:
+             '© <a href="https://apps.mapbox.com/feedback/">Mapbox</a>',
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 10,
+        maxZoom: 16
+    });
+        
+    var mapLayer1 = L.layerGroup([osmLayer, histoLayer]);
+    var mapLayer2 = L.layerGroup([osmLayer, synthLayer]).addTo(map);
+    var mapLayer3 = L.layerGroup([osmLayer, withtextLayer]).addTo(map);
 
     var mapLayers = {
-    "Synthetic Maps" : mapLayer1,
-    "Historical Maps" : mapLayer2
+    "Historical Maps" : mapLayer1,
+    "Synthetic Maps" : mapLayer2,
+    "SynthMap w/ Text": mapLayer3
     };
 
     L.control.layers(mapLayers,null,{collapsed:false, position: 'topright'}).addTo(map);
 
-    L.control.sideBySide([osmLayer, osmLayer],[synthLayer, histoLayer]).addTo(map);
+    L.control.sideBySide([osmLayer, osmLayer, osmLayer],[ histoLayer,synthLayer,withtextLayer]).addTo(map);
 
 
 
