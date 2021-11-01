@@ -1,4 +1,4 @@
-# Map Side-by-side
+# Synthetic Historical Map Generation Demo
 
 Demo to show the map synthesis using cycle-GAN to convert open street map (OSM) images into historical map style. The historical map dataset used for training is downloaded from National Library of Scotland ([NLS](https://maps.nls.uk/)) website. 
 
